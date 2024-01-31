@@ -472,6 +472,7 @@ PlayerSettings:
       m_Height: 36
       m_Kind: 0
       m_SubKind: 
+<<<<<<< Updated upstream
   m_BuildTargetBatching:
   - m_BuildTarget: Standalone
     m_StaticBatching: 1
@@ -488,6 +489,9 @@ PlayerSettings:
   - m_BuildTarget: WebGL
     m_StaticBatching: 0
     m_DynamicBatching: 0
+=======
+  m_BuildTargetBatching: []
+>>>>>>> Stashed changes
   m_BuildTargetShaderSettings: []
   m_BuildTargetGraphicsJobs:
   - m_BuildTarget: MacStandaloneSupport
