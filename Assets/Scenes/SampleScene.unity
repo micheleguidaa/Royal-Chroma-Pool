@@ -322,6 +322,8 @@ MonoBehaviour:
   headPosition: {fileID: 1366847321}
   cueStickCamera: {fileID: 963194227}
   overHeadCamera: {fileID: 1482111065}
+  shotTimer: 3
+  movementThreshold: 0.002
 --- !u!65 &344232455
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -360,8 +362,8 @@ Transform:
   m_GameObject: {fileID: 344232453}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.014, y: 0.508, z: 0.01}
-  m_LocalScale: {x: 1.325625, y: 0.825, z: 2.43}
+  m_LocalPosition: {x: 0.013998, y: 0.508, z: 0.010002}
+  m_LocalScale: {x: 353.74478, y: 0.825, z: 260.65317}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1406,10 +1408,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7788de154eec4203add7e102856cc2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 7000
+  rotationSpeed: 4000
   offset: {x: 1.2, y: 0.68, z: 0}
   downAngle: 15
-  power: 5
+  power: 2
   cueStick: {fileID: 3248787830242277827}
 --- !u!1 &991187919
 GameObject:

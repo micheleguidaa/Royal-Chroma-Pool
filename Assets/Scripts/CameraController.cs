@@ -11,6 +11,9 @@ public class CameraController : MonoBehaviour
     [SerializeField] float power;
     [SerializeField] GameObject cueStick;
     private float horizontalInput;
+    private bool isTakingShot = false;
+    [SerializeField] float maxDrawDistance;
+    private float savedMousePosition;
 
     Transform cueBall;
     GameManager gameManager;
@@ -34,9 +37,9 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (cueBall != null)
+        if (cueBall != null && !isTakingShot)
         {
-            horizontalInput = Input.GetAxis("Mouse X") * rotationSpeed * Time.deltaTime;
+            horizontalInput = Input.GetAxis("Mouse X") * rotationSpeed * Time.deltaTime ;
 
             transform.RotateAround(cueBall.position, Vector3.up, horizontalInput);
         }
@@ -67,5 +70,13 @@ public class CameraController : MonoBehaviour
         transform.position = cueBall.position + offset;
         transform.LookAt(cueBall.position);
         transform.localEulerAngles = new Vector3(downAngle, transform.localEulerAngles.y, 0);
+    }
+
+    void Shoot()
+    {
+        if(gameObject.GetComponent<Camera>().enabled)
+        {
+            if(Input.GetButtonDown("Fire 1") && !isTakingShot)
+        }
     }
 }
