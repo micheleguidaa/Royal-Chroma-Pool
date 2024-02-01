@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 
@@ -38,6 +39,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void RestartTheGame()
+    {
+        SceneManager.LoadScene(0);
     }
 
     bool Scratch()
@@ -134,6 +140,7 @@ public class GameManager : MonoBehaviour
             if (ball.IsBallRed())
             {
                 player1BallsRemaining--;
+                player1BallsText.text = "Player 1 Balls Remaning: 7";
                 if (player1BallsRemaining <= 0)
                 {
                     isWinningShotForPlayer1 = true;
