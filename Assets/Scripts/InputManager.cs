@@ -28,5 +28,6 @@ public class InputManager : MonoBehaviour
     void InitializeInputSystem()
     {
         inputSystem.Player.Movement.performed += ctx => cameraController.SetXAxis(ctx.ReadValue<Vector2>().x);
+        inputSystem.Player.Movement.performed += ctx => cameraController.SetYAxis(ctx.ReadValue<Vector2>().y);
     }
 }

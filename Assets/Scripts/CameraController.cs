@@ -11,12 +11,17 @@ public class CameraController : MonoBehaviour
     [SerializeField] float downAngle;
     [SerializeField] float power;
     [SerializeField] GameObject cueStick;
+    [SerializeField] GameObject toShotButton;
+    [SerializeField] GameObject shotButton;
     private float horizontalInput;
     private bool isTakingShot = false;
     [SerializeField] float maxDrawDistance;
     [SerializeField] TextMeshProUGUI powerText;
     private float savedMousePosition;
     private float xAxis;
+    private float yAxis;
+    private bool istoShot = false;
+    private bool isShot = false;
     
 
     Transform cueBall;
@@ -25,6 +30,7 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        toShotButton.SetActive(true);
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         foreach (GameObject ball in GameObject.FindGameObjectsWithTag("Ball"))
         {
@@ -69,12 +75,29 @@ public class CameraController : MonoBehaviour
             gameManager.SwitchCameras();
         }
         */
-       //Shoot();
+        
+       Shoot();
+    }
+
+    public void SetToShot()
+    {
+        istoShot = true;
+        toShotButton.SetActive(false);
+        shotButton.SetActive(true);
+
+    }
+
+
+    public void SetIsShot()
+    {
+        isShot = true;
     }
 
     public void ResetCamera()
     {
+        istoShot = false;
         cueStick.SetActive(true);
+        toShotButton.SetActive(true);
         transform.position = cueBall.position + offset;
         transform.LookAt(cueBall.position);
         transform.localEulerAngles = new Vector3(downAngle, transform.localEulerAngles.y, 0);
@@ -82,18 +105,21 @@ public class CameraController : MonoBehaviour
 
     void Shoot()
     {
+        
         if(gameObject.GetComponent<Camera>().enabled)
         {
-            if (Input.GetButtonDown("Fire1") && !isTakingShot)
+            if (istoShot && !isTakingShot)
             {
+                shotButton.SetActive(true);
                 isTakingShot = true;
                 savedMousePosition = 0f;
             }
             else if (isTakingShot)
             {
-                if(savedMousePosition+Input.GetAxis("Mouse Y") <= 0)
+
+                if(savedMousePosition+ yAxis <= 0)
                 {
-                    savedMousePosition += Input.GetAxis("Mouse Y");
+                    savedMousePosition = savedMousePosition+ yAxis * 0.01f;
 
                     if(savedMousePosition<=maxDrawDistance)
                     {
@@ -103,13 +129,15 @@ public class CameraController : MonoBehaviour
                     int powerValueInt = Mathf.RoundToInt(powerValueNumber);
                     powerText.text = "Power: " + powerValueInt + "%";
                 }
-                if(Input.GetButtonDown("Fire1"))
+                if(isShot)
                 {
+                    isShot = false;
                     Vector3 hitDirection = transform.forward;
                     hitDirection = new Vector3(hitDirection.x, 0, hitDirection.z).normalized;
 
                     cueBall.gameObject.GetComponent<Rigidbody>().AddForce(hitDirection * power * Mathf.Abs(savedMousePosition), ForceMode.Impulse);
                     cueStick.SetActive(false);
+                    shotButton.SetActive(false);
                     gameManager.SwitchCameras();
                     isTakingShot = false;
                     
@@ -123,6 +151,11 @@ public class CameraController : MonoBehaviour
     public void SetXAxis(float value)
     {
         xAxis = value;
+    }
+
+    public void SetYAxis(float value)
+    {
+        yAxis = value;
     }
 
 }
