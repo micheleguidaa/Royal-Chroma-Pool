@@ -16,6 +16,8 @@ public class CameraController : MonoBehaviour
     [SerializeField] float maxDrawDistance;
     [SerializeField] TextMeshProUGUI powerText;
     private float savedMousePosition;
+    private float xAxis;
+    
 
     Transform cueBall;
     GameManager gameManager;
@@ -39,12 +41,15 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (cueBall != null && !isTakingShot)
         {
-            horizontalInput = Input.GetAxis("Mouse X") * rotationSpeed * Time.deltaTime ;
+            // xAxis = Input.GetAxis("Horizontal");
+            horizontalInput = xAxis * rotationSpeed * Time.deltaTime ;
 
             transform.RotateAround(cueBall.position, Vector3.up, horizontalInput);
         }
+        
         /*
         //Temporary
         if(Input.GetKeyDown(KeyCode.Space))
@@ -64,7 +69,7 @@ public class CameraController : MonoBehaviour
             gameManager.SwitchCameras();
         }
         */
-        Shoot();
+       //Shoot();
     }
 
     public void ResetCamera()
@@ -107,8 +112,17 @@ public class CameraController : MonoBehaviour
                     cueStick.SetActive(false);
                     gameManager.SwitchCameras();
                     isTakingShot = false;
+                    
                 }
             }
         }
+
+    
     }
+
+    public void SetXAxis(float value)
+    {
+        xAxis = value;
+    }
+
 }

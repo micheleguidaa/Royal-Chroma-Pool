@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     bool isGameOver = false;
     bool willSwapPlayers = false;
     bool ballPocketed = false;
+    bool vistaTiro = true;
 
 
     [SerializeField] TextMeshProUGUI player1BallsText;
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] Camera cueStickCamera;
     [SerializeField] Camera overHeadCamera;
+    [SerializeField] GameObject asta;
     [SerializeField] float shotTimer = 3f;
     [SerializeField] float movementThreshold;
     private float currentTimer;
@@ -44,7 +46,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentPlayer = CurrentPlayer.Player1;
+        currentPlayer = CurrentPlayer.Player1;    
         currentCamera = cueStickCamera;
         currentTimer = shotTimer;
     }
@@ -89,6 +91,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void SwitchCameras() {
+     
         if (currentCamera == cueStickCamera)
         {
             cueStickCamera.enabled = false;
@@ -103,6 +106,23 @@ public class GameManager : MonoBehaviour
             currentCamera = cueStickCamera;
             currentCamera.gameObject.GetComponent<CameraController>().ResetCamera();
         }
+    }
+
+    public void Logica()
+    {
+        if(vistaTiro)
+        {
+            vistaTiro = false;
+            asta.SetActive(false);
+            isWaitingForBallMovementToStop = true;
+        }
+        else
+        {
+            vistaTiro = true;
+            asta.SetActive(true);
+            currentCamera.gameObject.GetComponent<CameraController>().ResetCamera();
+        }
+
     }
 
     public void RestartTheGame()
@@ -252,6 +272,7 @@ public class GameManager : MonoBehaviour
 
     void NextPlayerTurn()
     {
+       
         if (currentPlayer == CurrentPlayer.Player1)
         {
             currentPlayer = CurrentPlayer.Player2;
@@ -284,4 +305,6 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+
 }
