@@ -1412,7 +1412,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 429881149}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: SetShotaSens
+        m_MethodName: SetShotSens
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2030,11 +2030,9 @@ MonoBehaviour:
   controllerShotSensSlider: {fileID: 296018722}
   defaultCamSens: 4
   defaultShotSens: 4
-  mainControllerSens1: 4
-  mainControllerSens2: 4
+  mainControllerCamSens: 4
+  mainControllerShotSens: 4
   newGameLevel: Game
-  noSavedGameDialog: {fileID: 1585194361}
-  confirmationPrompt: {fileID: 0}
 --- !u!4 &429881150
 Transform:
   m_ObjectHideFlags: 0

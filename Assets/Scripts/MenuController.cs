@@ -7,6 +7,9 @@ using TMPro;
 
 public class MenuController : MonoBehaviour
 {
+    /* Fatta da miki!*/
+    private CameraController camera = new CameraController();
+
     [Header("Volume Settings")]
     [SerializeField] private TMP_Text volumeTextValue = null;
     [SerializeField] private Slider volumeSlider = null;
@@ -19,33 +22,15 @@ public class MenuController : MonoBehaviour
     [SerializeField] private Slider controllerShotSensSlider = null;
     [SerializeField] private int defaultCamSens = 4;
     [SerializeField] private int defaultShotSens = 4;
-    public int mainControllerSens1 = 4;
-    public int mainControllerSens2 = 4;
+    public int mainControllerCamSens = 4;
+    public int mainControllerShotSens = 4;
 
     [Header("Levels To Load")]
     public string newGameLevel;
-    private string levelToLoad;
-    [SerializeField] private GameObject noSavedGameDialog = null;
-
-    [Header("Confirmation")]
-    [SerializeField] private GameObject confirmationPrompt = null;
-
+ 
     public void NewGameDialogYes()
     {
         SceneManager.LoadScene(newGameLevel);
-    }
-
-    public void LoadGameDialogYes()
-    {
-        if (PlayerPrefs.HasKey("SavedLevel"))
-        {
-            levelToLoad = PlayerPrefs.GetString("SavedLevel");
-            SceneManager.LoadScene(levelToLoad);
-        }
-        else
-        {
-            noSavedGameDialog.SetActive(true);
-        }
     }
 
     public void ExitButton()
@@ -66,20 +51,22 @@ public class MenuController : MonoBehaviour
 
     public void SetCameraSens(float value)
     {
-        mainControllerSens1 = Mathf.RoundToInt(value);
+        mainControllerCamSens = Mathf.RoundToInt(value);
         controllerCamSensTextValue.text = value.ToString("0");
     }
 
-    public void SetShotaSens(float value)
+    public void SetShotSens(float value)
     {
-        mainControllerSens2 = Mathf.RoundToInt(value);
+        mainControllerShotSens = Mathf.RoundToInt(value);
         controllerShotSensTextValue.text = value.ToString("0");
     }
 
     public void GameplayApply()
     {
-        PlayerPrefs.SetFloat("masterCamSens", mainControllerSens1);
-        PlayerPrefs.SetFloat("masterShotSens", mainControllerSens2);
+        PlayerPrefs.SetFloat("masterCamSens", mainControllerCamSens);
+        camera.SetCameraSens(mainControllerCamSens);
+        PlayerPrefs.SetFloat("masterShotSens", mainControllerShotSens);
+        camera.SetCameraSens(mainControllerShotSens);
     }
 
     public void ResetButton(string menuType)

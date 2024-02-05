@@ -22,6 +22,8 @@ public class CameraController : MonoBehaviour
     private float yAxis;
     private bool istoShot = false;
     private bool isShot = false;
+    private static int cameraSens = 4 ;
+    private static int shotSens = 4;
     
 
     Transform cueBall;
@@ -51,7 +53,7 @@ public class CameraController : MonoBehaviour
         if (cueBall != null && !isTakingShot)
         {
             // xAxis = Input.GetAxis("Horizontal");
-            horizontalInput = xAxis * rotationSpeed * Time.deltaTime ;
+            horizontalInput = xAxis * rotationSpeed * Time.deltaTime * 1/cameraSens;
 
             transform.RotateAround(cueBall.position, Vector3.up, horizontalInput);
         }
@@ -119,7 +121,7 @@ public class CameraController : MonoBehaviour
 
                 if(savedMousePosition+ yAxis <= 0)
                 {
-                    savedMousePosition = savedMousePosition+ yAxis * 0.03f;
+                    savedMousePosition = savedMousePosition+ yAxis * (0.01f*shotSens);
 
                     if(savedMousePosition<=maxDrawDistance)
                     {
@@ -157,5 +159,16 @@ public class CameraController : MonoBehaviour
     {
         yAxis = value;
     }
+
+    public void SetCameraSens(int value)
+    {
+        cameraSens = value;
+    }
+
+    public void SetShotSens(int value)
+    {
+        shotSens = value;
+    }
+
 
 }
