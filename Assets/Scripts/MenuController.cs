@@ -62,7 +62,6 @@ public class MenuController : MonoBehaviour
     public void VolumeApply()
     {
         PlayerPrefs.SetFloat("masterVolume",AudioListener.volume);
-        StartCoroutine(ConfirmationBox());
     }
 
     public void SetCameraSens(float value)
@@ -81,7 +80,6 @@ public class MenuController : MonoBehaviour
     {
         PlayerPrefs.SetFloat("masterCamSens", mainControllerSens1);
         PlayerPrefs.SetFloat("masterShotSens", mainControllerSens2);
-        StartCoroutine(ConfirmationBox());
     }
 
     public void ResetButton(string menuType)
@@ -103,11 +101,6 @@ public class MenuController : MonoBehaviour
         }
     }
 
-    public IEnumerator ConfirmationBox()
-    {
-        confirmationPrompt.SetActive(true);
-        yield return new WaitForSeconds(2);
-        confirmationPrompt.SetActive(false);
-    }
+
 
 }

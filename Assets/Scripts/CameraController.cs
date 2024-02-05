@@ -119,7 +119,7 @@ public class CameraController : MonoBehaviour
 
                 if(savedMousePosition+ yAxis <= 0)
                 {
-                    savedMousePosition = savedMousePosition+ yAxis * 0.01f;
+                    savedMousePosition = savedMousePosition+ yAxis * 0.03f;
 
                     if(savedMousePosition<=maxDrawDistance)
                     {

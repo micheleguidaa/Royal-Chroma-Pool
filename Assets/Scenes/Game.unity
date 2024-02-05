@@ -1810,7 +1810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7788de154eec4203add7e102856cc2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 90
+  rotationSpeed: 360
   offset: {x: 1.2, y: 0.68, z: 0}
   downAngle: 15
   power: 2
