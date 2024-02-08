@@ -42,6 +42,7 @@ public class LoginPagePlayFab : MonoBehaviour
         loginPage.SetActive(true);
         registerPage.SetActive(false);
         recoverPage.SetActive(false);
+        topText.text = "Login";
     }
 
     public void OpenRegisterPage()
@@ -49,6 +50,7 @@ public class LoginPagePlayFab : MonoBehaviour
         loginPage.SetActive(false);
         registerPage.SetActive(true);
         recoverPage.SetActive(false);
+        topText.text = "Register";
     }
 
     public void OpenRecoveryPage()
@@ -56,6 +58,7 @@ public class LoginPagePlayFab : MonoBehaviour
         loginPage.SetActive(false);
         registerPage.SetActive(false);
         recoverPage.SetActive(true);
+        topText.text = "Recovery";
     }
 
 }

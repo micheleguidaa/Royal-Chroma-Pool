@@ -157,9 +157,9 @@ RectTransform:
   - {fileID: 1899676460}
   m_Father: {fileID: 678279137}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 353.33746, y: -354.13232}
   m_SizeDelta: {x: 309.3372, y: 81.089}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &523340
@@ -1110,9 +1110,9 @@ RectTransform:
   - {fileID: 452895248}
   m_Father: {fileID: 408975518}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 353.33746, y: -593.45496}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 309.3372, y: 81.089}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &329869140
@@ -1243,9 +1243,9 @@ RectTransform:
   - {fileID: 374173533}
   m_Father: {fileID: 408975518}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 353.33746, y: -385.54886}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 309.3372, y: 81.089}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &354432028
@@ -1614,7 +1614,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &408975518
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2487,9 +2487,9 @@ RectTransform:
   - {fileID: 1548482405}
   m_Father: {fileID: 408975518}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 353.33746, y: -489.50192}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 309.3372, y: 81.089}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &630861734
@@ -2602,7 +2602,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &678279137
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3235,7 +3235,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 942465567}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1172007207}
+        m_TargetAssemblyTypeName: LoginPagePlayFab, Assembly-CSharp
+        m_MethodName: OpenLoginPage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &942465567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5144,9 +5156,9 @@ RectTransform:
   - {fileID: 118947459}
   m_Father: {fileID: 678279137}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 353.33746, y: -128.5163}
   m_SizeDelta: {x: 706.68, y: 143.9221}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1527311981
@@ -5181,9 +5193,9 @@ RectTransform:
   - {fileID: 1366577288}
   m_Father: {fileID: 408975518}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 353.33746, y: -83.39308}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 706.68, y: 143.9221}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1531308089
@@ -5523,9 +5535,9 @@ RectTransform:
   - {fileID: 194918633}
   m_Father: {fileID: 408975518}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 353.33746, y: -250.17926}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 706.68, y: 143.9221}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1648421740
@@ -6740,9 +6752,9 @@ RectTransform:
   - {fileID: 1549824812}
   m_Father: {fileID: 678279137}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 353.33746, y: -548.3318}
   m_SizeDelta: {x: 309.3372, y: 81.089}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2013374824
@@ -6788,7 +6800,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2013374825}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1172007207}
+        m_TargetAssemblyTypeName: LoginPagePlayFab, Assembly-CSharp
+        m_MethodName: OpenLoginPage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2013374825
 MonoBehaviour:
   m_ObjectHideFlags: 0
