@@ -315,8 +315,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player1BallsText: {fileID: 666999355}
-  player2BallsText: {fileID: 1743326504}
-  currentTurnText: {fileID: 1618987820}
+  player2BallsText: {fileID: 1618987820}
+  currentTurnText: {fileID: 1743326504}
   messageText: {fileID: 411010516}
   restartButton: {fileID: 991187919}
   headPosition: {fileID: 1366847321}
@@ -1064,8 +1064,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Player 1 Balls Remaning: 7'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 79307f501eb267b44be9d7ca808a3dfb, type: 2}
+  m_sharedMaterial: {fileID: -3191260080303070782, guid: 79307f501eb267b44be9d7ca808a3dfb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1198,8 +1198,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Power: 0%'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 79307f501eb267b44be9d7ca808a3dfb, type: 2}
+  m_sharedMaterial: {fileID: -3191260080303070782, guid: 79307f501eb267b44be9d7ca808a3dfb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2523,7 +2523,7 @@ GameObject:
   - component: {fileID: 1618987821}
   - component: {fileID: 1618987820}
   m_Layer: 5
-  m_Name: CurrentPlayerTurnText
+  m_Name: Player2BallCountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2543,10 +2543,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1599336957}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: -69}
-  m_SizeDelta: {x: 516.38, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 1403.6, y: 0}
+  m_SizeDelta: {x: -1404.62, y: -1030}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1618987820
 MonoBehaviour:
@@ -2570,8 +2570,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Player 2 Balls Remaning: 7'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 79307f501eb267b44be9d7ca808a3dfb, type: 2}
+  m_sharedMaterial: {fileID: -3191260080303070782, guid: 79307f501eb267b44be9d7ca808a3dfb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2773,7 +2773,7 @@ GameObject:
   - component: {fileID: 1743326505}
   - component: {fileID: 1743326504}
   m_Layer: 5
-  m_Name: 'Player2BallCountText '
+  m_Name: CurrentPlayerTurnTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2820,8 +2820,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Current Turn: Player 1'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 79307f501eb267b44be9d7ca808a3dfb, type: 2}
+  m_sharedMaterial: {fileID: -3191260080303070782, guid: 79307f501eb267b44be9d7ca808a3dfb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4793,7 +4793,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8029e262783c64ff595469b93b87dbbe, type: 2}
+  - {fileID: 2100000, guid: 481d1d21c29b1ed41b50472c451abfda, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
