@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using PlayFab;
+using PlayFab.ClientModels;
+using System;
+using UnityEngine.SceneManagement;
 
 public class LoginPagePlayFab : MonoBehaviour
 {
@@ -36,6 +40,72 @@ public class LoginPagePlayFab : MonoBehaviour
     {
         
     }
+
+    public void RegisterUser()
+    {
+        var request = new RegisterPlayFabUserRequest
+        {
+            DisplayName = usernameRegisterInput.text,
+            Email = emailRegisterInput.text,
+            Password = passwordRegisterInput.text,
+
+            RequireBothUsernameAndEmail = false
+        };
+
+        PlayFabClientAPI.RegisterPlayFabUser(request, OnRegisterSucces, OnError);
+    }
+
+    public void Login()
+    {
+        var request = new LoginWithEmailAddressRequest
+        {
+            Email = emailLoginInput.text,
+            Password = passwordLoginInput.text
+        };
+        PlayFabClientAPI.LoginWithEmailAddress(request, OnLoginSucces, OnError);
+    }
+
+    private void OnLoginSucces(LoginResult result)
+    {
+        messageText.text = "Loggin in";
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void RecoveryUser()
+    {
+        var request = new SendAccountRecoveryEmailRequest
+        {
+            Email = emailRecoveryInput.text,
+            TitleId = "C2004",
+        };
+
+        PlayFabClientAPI.SendAccountRecoveryEmail(request, OnRecovererySucces, OnErrorRecovery);
+    }
+
+    private void OnErrorRecovery(PlayFabError result)
+    {
+        messageText.text = "No Email Found!";
+    }
+
+    private void OnRecovererySucces(SendAccountRecoveryEmailResult result)
+    {
+        OpenLoginPage();
+        messageText.text = "Recovery Mail Sent";
+    }
+
+    private void OnError(PlayFabError error)
+    {
+        messageText.text = error.ErrorMessage;
+        Debug.Log(error.GenerateErrorReport());
+    }
+
+    private void OnRegisterSucces(RegisterPlayFabUserResult result)
+    {
+        messageText.text = "New Account Is Created";
+        OpenLoginPage();
+    }
+
+
 
     public void OpenLoginPage()
     {
