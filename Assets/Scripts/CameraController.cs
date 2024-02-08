@@ -13,8 +13,10 @@ public class CameraController : MonoBehaviour
     [SerializeField] GameObject cueStick;
     [SerializeField] GameObject toShotButton;
     [SerializeField] GameObject shotButton;
+    [SerializeField] GameObject toViewButton;
     private float horizontalInput;
     private bool isTakingShot = false;
+    private bool isToView = false;
     [SerializeField] float maxDrawDistance;
     [SerializeField] TextMeshProUGUI powerText;
     private float savedMousePosition;
@@ -52,40 +54,31 @@ public class CameraController : MonoBehaviour
         
         if (cueBall != null && !isTakingShot)
         {
-            // xAxis = Input.GetAxis("Horizontal");
             horizontalInput = xAxis * rotationSpeed * Time.deltaTime * 1/cameraSens;
 
             transform.RotateAround(cueBall.position, Vector3.up, horizontalInput);
         }
-        
-        /*
-        //Temporary
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            ResetCamera();
-        }
-        
-        //End Temporary
-        
-        if(Input.GetButtonDown("Fire1")&& gameObject.GetComponent<Camera>().enabled)
-        {
-            Vector3 hitDirection = transform.forward;
-            hitDirection = new Vector3(hitDirection.x, 0, hitDirection.z).normalized;
-
-            cueBall.gameObject.GetComponent<Rigidbody>().AddForce(hitDirection*power,ForceMode.Impulse);
-            cueStick.SetActive(false);
-            gameManager.SwitchCameras();
-        }
-        */
-        
        Shoot();
     }
 
     public void SetToShot()
     {
         istoShot = true;
+        isToView = false;
         toShotButton.SetActive(false);
+        toViewButton.SetActive(true);
         shotButton.SetActive(true);
+
+    }
+
+
+    public void SetToView()
+    {
+        istoShot = false;
+        toShotButton.SetActive(true);
+        toViewButton.SetActive(false);
+        shotButton.SetActive(false);
+        isToView = true;
 
     }
 
@@ -118,7 +111,12 @@ public class CameraController : MonoBehaviour
             }
             else if (isTakingShot)
             {
+                if (isToView)
+                {
+                    isTakingShot = false;
+                    return;
 
+                }
                 if(savedMousePosition+ yAxis <= 0)
                 {
                     savedMousePosition = savedMousePosition+ yAxis * (0.01f*shotSens);
@@ -136,10 +134,10 @@ public class CameraController : MonoBehaviour
                     isShot = false;
                     Vector3 hitDirection = transform.forward;
                     hitDirection = new Vector3(hitDirection.x, 0, hitDirection.z).normalized;
-
                     cueBall.gameObject.GetComponent<Rigidbody>().AddForce(hitDirection * power * Mathf.Abs(savedMousePosition), ForceMode.Impulse);
                     cueStick.SetActive(false);
                     shotButton.SetActive(false);
+                    toViewButton.SetActive(false);
                     gameManager.SwitchCameras();
                     isTakingShot = false;
                     
