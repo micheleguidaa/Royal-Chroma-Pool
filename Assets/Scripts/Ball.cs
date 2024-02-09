@@ -51,7 +51,7 @@ public class Ball : MonoBehaviour
         isRed = red;
         if (isRed)
         {
-            GetComponent<Renderer>().material.color = Color.red;
+            GetComponent<Renderer>().material.color = Color.Lerp(Color.black,Color.red,0.3f);
         }
         else
         {
