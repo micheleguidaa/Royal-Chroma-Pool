@@ -136,7 +136,7 @@ public class GameManager : MonoBehaviour
         {
             if (isWinningShotForPlayer1)
             {
-                ScratchOnWinningShot("Player 1");
+                ScratchOnWinningShot("Casata Rossa");
                 return true;
             }
 
@@ -144,7 +144,7 @@ public class GameManager : MonoBehaviour
         else {
             if (isWinningShotForPlayer2)
             {
-                ScratchOnWinningShot("Player 2");
+                ScratchOnWinningShot("Casata Blu");
                 return true;
             }
         }
@@ -159,11 +159,11 @@ public class GameManager : MonoBehaviour
     {
         if (currentPlayer == CurrentPlayer.Player1)
         {
-            Lose("Player 1 Hit in the Eight Ball Too Early and Has Lost!");
+            Lose("Casata Rossa Hit in the Eight Ball Too Early and Has Lost!");
         }
         else
         {
-            Lose("Player 2 Hit in the Eight Ball Too Early and Has Lost!");
+            Lose("Casata Blu Hit in the Eight Ball Too Early and Has Lost!");
         }
 
     }
@@ -172,18 +172,6 @@ public class GameManager : MonoBehaviour
     {
         Lose(player + " Scratched on Their Final Shot and Has Lost!");
     }
-
-    /*void NoMoreBalls(CurrentPlayer player)
-    {
-        if (player == CurrentPlayer.Player1)
-        {
-            isWinningShotForPlayer1 = true;
-        }
-        else
-        {
-            isWinningShotForPlayer2 = true;
-        }
-    } */
 
     bool CheckBall(Ball ball)
     {
@@ -204,7 +192,7 @@ public class GameManager : MonoBehaviour
             {
                 if (isWinningShotForPlayer1)
                 {
-                    Win("Player 1");
+                    Win("Casata Rossa");
                     return true;
                 }
 
@@ -214,7 +202,7 @@ public class GameManager : MonoBehaviour
 
                 if (isWinningShotForPlayer2)
                 {
-                    Win("Player 2");
+                    Win("Casata Blu");
                     return true;
                 }
             }
@@ -226,7 +214,7 @@ public class GameManager : MonoBehaviour
             if (ball.IsBallRed())
             {
                 player1BallsRemaining--;
-                player1BallsText.text = "Player 1 Balls Remaning: " + player1BallsRemaining;
+                player1BallsText.text = "Casata Rossa Balls Remaning: " + player1BallsRemaining;
                 if (player1BallsRemaining <= 0)
                 {
                     isWinningShotForPlayer1 = true;
@@ -239,7 +227,7 @@ public class GameManager : MonoBehaviour
             else
             {
                 player2BallsRemaining--;
-                player2BallsText.text = "Player 2 Balls Remaning: " + player2BallsRemaining;
+                player2BallsText.text = "Casata Blu Balls Remaning: " + player2BallsRemaining;
 
                 if (player1BallsRemaining <= 0)
                 {
@@ -276,12 +264,12 @@ public class GameManager : MonoBehaviour
         if (currentPlayer == CurrentPlayer.Player1)
         {
             currentPlayer = CurrentPlayer.Player2;
-            currentTurnText.text = "Current Turn: Player 2";
+            currentTurnText.text = "Current Turn: Casata Blu";
         }
         else
         {
             currentPlayer = CurrentPlayer.Player1;
-            currentTurnText.text = "Current Turn: Player 1";
+            currentTurnText.text = "Current Turn: Casata Rossa";
         }
         willSwapPlayers = false;
         SwitchCameras();
