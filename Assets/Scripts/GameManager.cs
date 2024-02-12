@@ -127,7 +127,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartTheGame()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(2);
     }
 
     bool Scratch()
