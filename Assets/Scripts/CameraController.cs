@@ -5,28 +5,40 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-
+    [Header("Sensitivity")]
     [SerializeField] float rotationSpeed;
+    [SerializeField] float power;
+    [SerializeField] float maxDrawDistance;
+
+    [Header("Setup")]
     [SerializeField] Vector3 offset;
     [SerializeField] float downAngle;
-    [SerializeField] float power;
+
+    [Header("CueStick")]
     [SerializeField] GameObject cueStick;
+
+    [Header("Buttons")]
     [SerializeField] GameObject toShotButton;
     [SerializeField] GameObject shotButton;
     [SerializeField] GameObject toViewButton;
+
+    [Header("Text")]
+    [SerializeField] TextMeshProUGUI powerText;
+
     private float horizontalInput;
+
     private bool isTakingShot = false;
     private bool isToView = false;
-    [SerializeField] float maxDrawDistance;
-    [SerializeField] TextMeshProUGUI powerText;
-    private float savedMousePosition;
-    private float xAxis;
-    private float yAxis;
     private bool istoShot = false;
     private bool isShot = false;
-    private static int cameraSens = 4 ;
+
+    private float savedMousePosition;
+
+    private float xAxis;
+    private float yAxis;
+
+    private static int cameraSens = 4;
     private static int shotSens = 4;
-    
 
     Transform cueBall;
     GameManager gameManager;
@@ -170,3 +182,4 @@ public class CameraController : MonoBehaviour
 
 
 }
+
