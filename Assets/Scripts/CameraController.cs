@@ -10,7 +10,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] float power;
     [SerializeField] float maxDrawDistance;
     public static int cameraSensDefault = 4;
-    public static int shotSensDefault = 4;
+    public static int shotSensDefault = 8;
     private int cameraSens;
     private int shotSens;
 
