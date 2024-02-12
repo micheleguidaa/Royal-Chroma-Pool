@@ -60,8 +60,8 @@ public class MenuController : MonoBehaviour
 
     public void GameplayApply()
     {
-        CameraController.cameraSens = (int)controllerCamSensSlider.value;
-        CameraController.shotSens = (int)controllerShotSensSlider.value;
+        CameraController.cameraSensDefault = (int)controllerCamSensSlider.value;
+        CameraController.shotSensDefault = (int)controllerShotSensSlider.value;
     }
 
     public void ResetButton(string menuType)

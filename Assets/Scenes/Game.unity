@@ -1396,9 +1396,9 @@ RectTransform:
   m_Father: {fileID: 1599336957}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.030000001, y: 0.41018522}
-  m_AnchorMax: {x: 0.9844376, y: 0.59270376}
-  m_AnchoredPosition: {x: -2.3205566, y: -1.5019531}
-  m_SizeDelta: {x: 1.9936523, y: 3}
+  m_AnchorMax: {x: 0.9598961, y: 0.59270376}
+  m_AnchoredPosition: {x: 8.822998, y: -1.5019531}
+  m_SizeDelta: {x: -23.095001, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &411010516
 MonoBehaviour:
@@ -1447,10 +1447,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70
-  m_fontSizeBase: 70
+  m_fontSize: 64
+  m_fontSizeBase: 64
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -3403,8 +3403,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   power: 2
   maxDrawDistance: -5
-  cameraSens: 4
-  shotSens: 4
   offset: {x: 1.2, y: 0.68, z: 0}
   downAngle: 15
   cueStick: {fileID: 324231656776266225}

@@ -9,8 +9,10 @@ public class CameraController : MonoBehaviour
     
     [SerializeField] float power;
     [SerializeField] float maxDrawDistance;
-    [SerializeField] static public int cameraSens;
-    [SerializeField] static public int shotSens;
+    public static int cameraSensDefault = 4;
+    public static int shotSensDefault = 4;
+    private int cameraSens;
+    private int shotSens;
 
     [Header("Setup")]
     [SerializeField] Vector3 offset;
@@ -44,6 +46,12 @@ public class CameraController : MonoBehaviour
 
     Transform cueBall;
     GameManager gameManager;
+
+    private void Awake()
+    {
+        cameraSens = cameraSensDefault;
+        shotSens = shotSensDefault;
+    }
 
     void Start()
     {
