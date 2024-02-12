@@ -6,9 +6,11 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [Header("Sensitivity")]
-    [SerializeField] float rotationSpeed;
+    
     [SerializeField] float power;
     [SerializeField] float maxDrawDistance;
+    [SerializeField] int cameraSens = 4;
+    [SerializeField] int shotSens = 4;
 
     [Header("Setup")]
     [SerializeField] Vector3 offset;
@@ -37,13 +39,12 @@ public class CameraController : MonoBehaviour
     private float xAxis;
     private float yAxis;
 
-    private static int cameraSens = 4;
-    private static int shotSens = 4;
+
+    readonly float rotationSpeed = 360;
 
     Transform cueBall;
     GameManager gameManager;
 
-    // Start is called before the first frame update
     void Start()
     {
         toShotButton.SetActive(true);
@@ -60,13 +61,12 @@ public class CameraController : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         
         if (cueBall != null && !isTakingShot)
         {
-            horizontalInput = xAxis * rotationSpeed * Time.deltaTime * 1/cameraSens;
+            horizontalInput = xAxis * rotationSpeed * Time.deltaTime * (3+cameraSens)/31;
 
             transform.RotateAround(cueBall.position, Vector3.up, horizontalInput);
         }
@@ -129,9 +129,9 @@ public class CameraController : MonoBehaviour
                     return;
 
                 }
-                if(savedMousePosition+ yAxis <= 0)
+                if(savedMousePosition+ yAxis*0.01f*shotSens <= 0)
                 {
-                    savedMousePosition = savedMousePosition+ yAxis * (0.01f*shotSens);
+                    savedMousePosition +=  yAxis * (0.01f) * shotSens;
 
                     if(savedMousePosition<=maxDrawDistance)
                     {
@@ -156,7 +156,6 @@ public class CameraController : MonoBehaviour
                 }
             }
         }
-
     
     }
 

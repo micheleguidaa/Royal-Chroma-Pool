@@ -3401,15 +3401,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7788de154eec4203add7e102856cc2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 360
+  power: 2
+  maxDrawDistance: -5
+  cameraSens: 4
+  shotSens: 4
   offset: {x: 1.2, y: 0.68, z: 0}
   downAngle: 15
-  power: 2
   cueStick: {fileID: 324231656776266225}
   toShotButton: {fileID: 926425728}
   shotButton: {fileID: 452263830}
   toViewButton: {fileID: 65362995}
-  maxDrawDistance: -5
   powerText: {fileID: 674553291}
 --- !u!114 &963194230
 MonoBehaviour:
