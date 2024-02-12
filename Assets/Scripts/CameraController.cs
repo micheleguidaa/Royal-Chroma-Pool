@@ -9,8 +9,8 @@ public class CameraController : MonoBehaviour
     
     [SerializeField] float power;
     [SerializeField] float maxDrawDistance;
-    [SerializeField] int cameraSens = 4;
-    [SerializeField] int shotSens = 4;
+    [SerializeField] static public int cameraSens;
+    [SerializeField] static public int shotSens;
 
     [Header("Setup")]
     [SerializeField] Vector3 offset;

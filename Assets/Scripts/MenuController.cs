@@ -7,9 +7,6 @@ using TMPro;
 
 public class MenuController : MonoBehaviour
 {
-    /* Fatta da miki!*/
-    private CameraController camera = new CameraController();
-
     [Header("Volume Settings")]
     [SerializeField] private TMP_Text volumeTextValue = null;
     [SerializeField] private Slider volumeSlider = null;
@@ -63,10 +60,8 @@ public class MenuController : MonoBehaviour
 
     public void GameplayApply()
     {
-        PlayerPrefs.SetFloat("masterCamSens", mainControllerCamSens);
-        camera.SetCameraSens(mainControllerCamSens);
-        PlayerPrefs.SetFloat("masterShotSens", mainControllerShotSens);
-        camera.SetCameraSens(mainControllerShotSens);
+        CameraController.cameraSens = (int)controllerCamSensSlider.value;
+        CameraController.shotSens = (int)controllerShotSensSlider.value;
     }
 
     public void ResetButton(string menuType)
