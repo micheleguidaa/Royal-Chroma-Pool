@@ -19,7 +19,6 @@ public class LoginPagePlayFab : MonoBehaviour
     [SerializeField] GameObject loginPage;
 
     [Header("Register")]
-    [SerializeField] TMP_InputField usernameRegisterInput;
     [SerializeField] TMP_InputField emailRegisterInput;
     [SerializeField] TMP_InputField passwordRegisterInput;
     [SerializeField] GameObject registerPage;
@@ -45,10 +44,8 @@ public class LoginPagePlayFab : MonoBehaviour
     {
         var request = new RegisterPlayFabUserRequest
         {
-            DisplayName = usernameRegisterInput.text,
             Email = emailRegisterInput.text,
             Password = passwordRegisterInput.text,
-
             RequireBothUsernameAndEmail = false
         };
 
