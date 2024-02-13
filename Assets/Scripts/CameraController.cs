@@ -10,7 +10,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] float power;
     [SerializeField] float maxDrawDistance;
     public static int cameraSensDefault = 4;
-    public static int shotSensDefault = 8;
+    public static int shotSensDefault = 4;
     private int cameraSens;
     private int shotSens;
 
@@ -137,9 +137,9 @@ public class CameraController : MonoBehaviour
                     return;
 
                 }
-                if(savedMousePosition+ yAxis*0.01f*shotSens <= 0)
+                if(savedMousePosition+ yAxis*0.01f*shotSens*2 <= 0)
                 {
-                    savedMousePosition +=  yAxis * (0.01f) * shotSens;
+                    savedMousePosition +=  yAxis * (0.01f) * shotSens*2;
 
                     if(savedMousePosition<=maxDrawDistance)
                     {
