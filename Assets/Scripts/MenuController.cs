@@ -17,10 +17,10 @@ public class MenuController : MonoBehaviour
     [SerializeField] private TMP_Text controllerShotSensTextValue = null;
     [SerializeField] private Slider controllerCamSensSlider = null;
     [SerializeField] private Slider controllerShotSensSlider = null;
-    [SerializeField] private int defaultCamSens = 4;
-    [SerializeField] private int defaultShotSens = 4;
-    public int mainControllerCamSens = 4;
-    public int mainControllerShotSens = 4;
+    [SerializeField] private int defaultCamSens = 5;
+    [SerializeField] private int defaultShotSens = 5;
+    public int mainControllerCamSens = 5;
+    public int mainControllerShotSens = 5;
 
     [Header("Levels To Load")]
     public string newGameLevel;
