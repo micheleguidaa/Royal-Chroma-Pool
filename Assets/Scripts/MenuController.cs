@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using EasyTransition;
 
 public class MenuController : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class MenuController : MonoBehaviour
     private float precCamSens;
     private float precShotSens;
     private static bool isFirstTime = true;
+    public TransitionSettings transitionGame;
 
     [Header("Levels To Load")]
     public string newGameLevel;
@@ -61,7 +63,7 @@ public class MenuController : MonoBehaviour
 
     public void NewGameDialogYes()
     {
-        SceneManager.LoadScene(newGameLevel);
+        TransitionManager.Instance().Transition("Game", transitionGame, 0);
     }
 
     public void ExitButton()

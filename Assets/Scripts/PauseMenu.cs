@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
+using EasyTransition;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -29,9 +30,9 @@ public class PauseMenu : MonoBehaviour
     private float precVolume;
     private float precCamSens;
     private float precShotSens;
+    public TransitionSettings transitionRestart;
+    public TransitionSettings transitionQuit;
 
-    public Animator transitionAnimator;
-    public float transitionTime = 1f;
 
 
     private void Awake()
@@ -68,7 +69,9 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         gameIsPaused = false;
         mainMenuPause.SetActive(false);
-        LoadScene(2);
+        TransitionManager.Instance().Transition("Game", transitionRestart, 0);
+
+
     }
 
     public void Quit()
@@ -76,7 +79,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         gameIsPaused = false;
         mainMenuPause.SetActive(false);
-        LoadScene(1);
+        TransitionManager.Instance().Transition("MainMenu", transitionQuit, 0);
     }
 
      public void Options()
@@ -142,20 +145,6 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-
-    public void LoadScene(int sceneName)
-    {
-        StartCoroutine(LoadSceneCoroutine(sceneName));
-    }
-
-    IEnumerator LoadSceneCoroutine(int sceneName)
-    {
-        transitionAnimator.SetTrigger("StartTransition");
-
-        yield return new WaitForSeconds(transitionTime);
-
-        SceneManager.LoadScene(sceneName);
-    }
 
     
 }
