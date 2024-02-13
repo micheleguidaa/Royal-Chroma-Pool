@@ -30,6 +30,9 @@ public class PauseMenu : MonoBehaviour
     private float precCamSens;
     private float precShotSens;
 
+    public Animator transitionAnimator;
+    public float transitionTime = 1f;
+
 
     private void Awake()
     {
@@ -65,7 +68,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         gameIsPaused = false;
         mainMenuPause.SetActive(false);
-        SceneManager.LoadScene(2);
+        LoadScene(2);
     }
 
     public void Quit()
@@ -73,7 +76,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         gameIsPaused = false;
         mainMenuPause.SetActive(false);
-        SceneManager.LoadScene(1);
+        LoadScene(1);
     }
 
      public void Options()
@@ -137,6 +140,21 @@ public class PauseMenu : MonoBehaviour
             controllerCamSensTextValue.text = defaultCamSens.ToString("0");
             GameplayApply();
         }
+    }
+
+
+    public void LoadScene(int sceneName)
+    {
+        StartCoroutine(LoadSceneCoroutine(sceneName));
+    }
+
+    IEnumerator LoadSceneCoroutine(int sceneName)
+    {
+        transitionAnimator.SetTrigger("StartTransition");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        SceneManager.LoadScene(sceneName);
     }
 
     

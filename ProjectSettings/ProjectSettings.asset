@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: biliardo
-  productName: biliardo
+  companyName: Royal Chroma Pool
+  productName: Royal Chroma Pool
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.12156863, g: 0.12156863, b: 0.1254902, a: 1}
@@ -288,7 +288,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 1729c797446524b87a60828e4e5115c9, type: 3}
+      m_Icon: {fileID: 2800000, guid: 13f4546d948574df9b0752793013df8e, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
