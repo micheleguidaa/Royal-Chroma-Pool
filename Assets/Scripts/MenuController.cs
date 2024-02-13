@@ -24,12 +24,18 @@ public class MenuController : MonoBehaviour
     private float precVolume;
     private float precCamSens;
     private float precShotSens;
+    private static bool isFirstTime = true;
 
     [Header("Levels To Load")]
     public string newGameLevel;
 
     private void Awake()
     {
+        if (isFirstTime)
+        {
+            isFirstTime = false;
+            return;
+        } 
         precVolume = PlayerPrefs.GetFloat("masterVolume");
         volumeSlider.value = precVolume;
         SetVolume(precVolume);
