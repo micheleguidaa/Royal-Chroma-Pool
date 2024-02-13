@@ -16,8 +16,9 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private TMP_Text controllerShotSensTextValue = null;
     [SerializeField] private Slider controllerCamSensSlider = null;
     [SerializeField] private Slider controllerShotSensSlider = null;
-    [SerializeField] private int defaultCamSens = 5;
-    [SerializeField] private int defaultShotSens = 5;
+    [SerializeField] private CameraController mainCamera = null;
+    private int defaultCamSens = 5;
+    private int defaultShotSens = 5;
     public int mainControllerCamSens = 5;
     public int mainControllerShotSens = 5;
 
@@ -25,6 +26,23 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private TMP_Text volumeTextValue = null;
     [SerializeField] private Slider volumeSlider = null;
     [SerializeField] private float defaultVolume = 1.0f;
+    private float precVolume;
+    private float precCamSens;
+    private float precShotSens;
+
+
+    private void Awake()
+    {
+        precVolume = PlayerPrefs.GetFloat("masterVolume");
+        volumeSlider.value = precVolume;
+        SetVolume(precVolume);
+        precCamSens = PlayerPrefs.GetFloat("masterCameraSens");
+        controllerCamSensSlider.value = precCamSens;
+        SetCameraSens(precCamSens);
+        precShotSens = PlayerPrefs.GetFloat("masterShotSens");
+        controllerShotSensSlider.value = precShotSens;
+        SetShotSens(precShotSens);
+    }
 
     public void Resume()
     {
@@ -82,6 +100,7 @@ public class PauseMenu : MonoBehaviour
 
     public void SetCameraSens(float value)
     {
+        
         mainControllerCamSens = Mathf.RoundToInt(value);
         controllerCamSensTextValue.text = value.ToString("0");
     }
@@ -94,8 +113,10 @@ public class PauseMenu : MonoBehaviour
 
     public void GameplayApply()
     {
-        CameraController.cameraSensDefault = (int)controllerCamSensSlider.value;
-        CameraController.shotSensDefault = (int)controllerShotSensSlider.value;
+        PlayerPrefs.SetFloat("masterShotSens", controllerShotSensSlider.value);
+        PlayerPrefs.SetFloat("masterCameraSens", controllerCamSensSlider.value);
+        mainCamera.cameraSens = (int)controllerCamSensSlider.value;
+        mainCamera.shotSens = (int)controllerShotSensSlider.value;
     }
 
     public void ResetButton(string menuType)

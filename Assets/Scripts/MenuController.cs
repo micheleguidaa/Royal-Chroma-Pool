@@ -21,10 +21,26 @@ public class MenuController : MonoBehaviour
     [SerializeField] private int defaultShotSens = 5;
     public int mainControllerCamSens = 5;
     public int mainControllerShotSens = 5;
+    private float precVolume;
+    private float precCamSens;
+    private float precShotSens;
 
     [Header("Levels To Load")]
     public string newGameLevel;
- 
+
+    private void Awake()
+    {
+        precVolume = PlayerPrefs.GetFloat("masterVolume");
+        volumeSlider.value = precVolume;
+        SetVolume(precVolume);
+        precCamSens = PlayerPrefs.GetFloat("masterCameraSens");
+        controllerCamSensSlider.value = precCamSens;
+        SetCameraSens(precCamSens);
+        precShotSens = PlayerPrefs.GetFloat("masterShotSens");
+        controllerShotSensSlider.value = precShotSens;
+        SetShotSens(precShotSens);
+    }
+
     public void NewGameDialogYes()
     {
         SceneManager.LoadScene(newGameLevel);
@@ -60,6 +76,8 @@ public class MenuController : MonoBehaviour
 
     public void GameplayApply()
     {
+        PlayerPrefs.SetFloat("masterShotSens", controllerShotSensSlider.value);
+        PlayerPrefs.SetFloat("masterCameraSens", controllerCamSensSlider.value);
         CameraController.cameraSensDefault = (int)controllerCamSensSlider.value;
         CameraController.shotSensDefault = (int)controllerShotSensSlider.value;
     }
