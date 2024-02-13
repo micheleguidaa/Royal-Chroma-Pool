@@ -25,7 +25,7 @@ public class PauseMenu : MonoBehaviour
     [Header("Volume Settings")]
     [SerializeField] private TMP_Text volumeTextValue = null;
     [SerializeField] private Slider volumeSlider = null;
-    [SerializeField] private float defaultVolume = 1.0f;
+    private float defaultVolume = 0.5f;
     private float precVolume;
     private float precCamSens;
     private float precShotSens;
@@ -33,6 +33,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Awake()
     {
+
         precVolume = PlayerPrefs.GetFloat("masterVolume");
         volumeSlider.value = precVolume;
         SetVolume(precVolume);

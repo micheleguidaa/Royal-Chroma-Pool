@@ -10,7 +10,7 @@ public class MenuController : MonoBehaviour
     [Header("Volume Settings")]
     [SerializeField] private TMP_Text volumeTextValue = null;
     [SerializeField] private Slider volumeSlider = null;
-    [SerializeField] private float defaultVolume = 1.0f;
+    private float defaultVolume = 0.5f;
 
     [Header("Gameplay Settings")]
     [SerializeField] private TMP_Text controllerCamSensTextValue = null;
@@ -33,9 +33,21 @@ public class MenuController : MonoBehaviour
     {
         if (isFirstTime)
         {
+            controllerShotSensTextValue.text = defaultShotSens.ToString("0");
+            controllerShotSensSlider.value = defaultShotSens;
+            controllerCamSensSlider.value = defaultCamSens;
+            controllerCamSensTextValue.text = defaultCamSens.ToString("0");
+            GameplayApply();
+
+            AudioListener.volume = defaultVolume;
+            volumeSlider.value = defaultVolume;
+            volumeTextValue.text = defaultVolume.ToString("0.0");
+            VolumeApply();
+
             isFirstTime = false;
             return;
-        } 
+        }
+           
         precVolume = PlayerPrefs.GetFloat("masterVolume");
         volumeSlider.value = precVolume;
         SetVolume(precVolume);
