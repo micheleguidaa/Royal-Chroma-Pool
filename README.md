@@ -67,15 +67,6 @@ Royal-Chroma-Pool/
 
 ---
 
-## 📸 Screenshot
-
-### Gameplay
-
-![Gameplay](docs/images/gameplay.png)
-
-*(Suggerimento: aggiungi screenshot e GIF animate per mostrare meglio l’atmosfera medievale!)*
-
----
 
 ## 🤝 Contributi
 
