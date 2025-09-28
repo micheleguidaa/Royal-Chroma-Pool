@@ -77,12 +77,6 @@ I contributi sono benvenuti!
 
 ---
 
-## 📜 Licenza
-
-Attualmente il progetto **non specifica una licenza**.
-👉 Consigliato aggiungere un file `LICENSE` (MIT/Apache2.0/GPL) per permettere usi e contributi.
-
----
 
 ## 👥 Autori
 
